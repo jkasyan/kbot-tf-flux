@@ -1,0 +1,4 @@
+.idea
+kbot-tf-flux.iml
+.terraform
+.terraform.lock.hcl
