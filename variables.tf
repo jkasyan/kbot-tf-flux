@@ -1,5 +1,6 @@
 variable "GOOGLE_PROJECT" {
-  type = string
+  type    = string
+  default = "k8s-k3s-test-qwery-12345"
 }
 
 variable "GOOGLE_REGION" {
@@ -8,7 +9,8 @@ variable "GOOGLE_REGION" {
 }
 
 variable "GITHUB_OWNER" {
-  type = string
+  type    = string
+  default = "jkasyan"
 }
 
 variable "GITHUB_TOKEN" {

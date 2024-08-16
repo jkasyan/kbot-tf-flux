@@ -1,3 +1,3 @@
 export TF_VAR_GITHUB_OWNER=jkasyan
-export TF_VAR_GITHUB_REPO=github.com/jkasyan/
-export TF_VAR_GITHUB_TOKEN=
+export TF_VAR_GITHUB_REPO=github.com/jkasyan/kbot
+export TF_VAR_GITHUB_TOKEN=token
