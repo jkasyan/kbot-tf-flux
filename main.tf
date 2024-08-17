@@ -4,7 +4,7 @@ module "tls_private_key" {
 }
 
 module "gke_cluster" {
-  source         = "github.com/den-vasyliev/tf-google-gke-cluster"
+  source         = "./modules/gke_cluster"
   GOOGLE_REGION  = var.GOOGLE_REGION
   GOOGLE_PROJECT = var.GOOGLE_PROJECT
   GKE_NUM_NODES  = 1
@@ -19,10 +19,15 @@ module "github_repository" {
   public_key_openssh_title = "flux0"
 }
 
+resource "local_file" "kube" {
+  content = module.gke_cluster.kubeconfig_raw
+  filename = "${path.root}/kube"
+}
+
 module "flux_bootstrap" {
   source            = "github.com/den-vasyliev/tf-fluxcd-flux-bootstrap"
   github_repository = "${var.GITHUB_OWNER}/${var.FLUX_GITHUB_REPO}"
   private_key       = module.tls_private_key.private_key_pem
-  config_path       = module.gke_cluster.kubeconfig
+  config_path       = local_file.kube.filename
   github_token      = var.GITHUB_TOKEN
 }

@@ -2,3 +2,8 @@
 kbot-tf-flux.iml
 .terraform
 .terraform.lock.hcl
+terraform.tfstate
+kube
+terraform.tfvars
+*.info
+*.backup
