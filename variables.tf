@@ -17,10 +17,6 @@ variable "GITHUB_TOKEN" {
   type = string
 }
 
-variable "GITHUB_REPO" {
-  type = string
-}
-
 variable "FLUX_GITHUB_REPO" {
   type    = string
   default = "flux-gitops"
