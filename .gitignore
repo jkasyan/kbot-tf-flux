@@ -7,3 +7,4 @@ kube
 terraform.tfvars
 *.info
 *.backup
+flux-gitops

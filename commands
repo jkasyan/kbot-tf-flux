@@ -1,3 +1,5 @@
 export TF_VAR_GITHUB_OWNER=jkasyan
 export TF_VAR_GITHUB_REPO=kbot
 export TF_VAR_GITHUB_TOKEN=token
+
+flux create helmrelease kbot --namespace=kbot --source=GitRepository/kbot --chart="./helm" --interval=1m --export

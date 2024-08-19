@@ -13,6 +13,11 @@ variable "GITHUB_OWNER" {
   default = "jkasyan"
 }
 
+variable "GITHUB_REPO" {
+  type = string
+  default = "kbot"
+}
+
 variable "GITHUB_TOKEN" {
   type = string
 }

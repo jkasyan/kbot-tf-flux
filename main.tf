@@ -19,12 +19,6 @@ module "github_repository" {
   public_key_openssh_title = "flux0"
 }
 
-# TODO: remove
-resource "local_file" "kube" {
-  content = module.gke_cluster.kubeconfig_raw
-  filename = "${path.root}/kube"
-}
-
 module "flux_bootstrap" {
   source            = "./modules/flux_bootstrap"
   github_repository = "${var.GITHUB_OWNER}/${var.FLUX_GITHUB_REPO}"
