@@ -1,0 +1,23 @@
+
+k get sa -n flux-system kustomize-controller -o yaml
+#
+#
+#
+gcloud config sett project prometheus-k83-k3s
+gcloud kms keys list --location global --keyring sops-flux
+
+k get sa -n flux-system kustomize-controller -o yaml
+
+#
+#
+#
+curl -LO https://github.com/getsops/sops/releases/download/v3.9.0/sops-v3.9.0.linux.amd64
+chmod +x sops
+
+read -s TELE_TOKEN
+export TELE_TOKEN
+
+k -n kbot create secret generic kbot --from-literal=token=$TELE_TOKEN --dry-run=client -o yaml > secret.yaml
+
+./sops -e -gcp-kms projects/prometheus-k83-k3s/locations/global/keyRings/sops-flux/cryptoKeys/sops-key-flux \
+--encrypted-regex '^(token)$' secret.yaml > secret-enc.yaml

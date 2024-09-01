@@ -1,6 +1,6 @@
 variable "GOOGLE_PROJECT" {
   type    = string
-  default = "k8s-k3s-test-qwery-12345"
+  default = "prometheus-k83-k3s"
 }
 
 variable "GOOGLE_REGION" {
